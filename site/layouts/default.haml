@@ -1,0 +1,73 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title= @item[:title]
+    /[if lt IE 9]
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    %link{:href => "/_static/bootstrap/css/bootstrap.css", :rel => "stylesheet"}/
+    :css
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    %link{:href => "/_static/bootstrap/css/bootstrap-responsive.min.css", :rel => "stylesheet"}/
+    %link{:href => "/_static/pygments.css", :rel => "stylesheet"}/
+    %link{:href => "/_static/rocco.css", :rel => "stylesheet"}/
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{:href => "#"} Project name
+          .nav-collapse
+            %ul.nav
+              %li.active
+                %a{:href => "#"} Home
+              %li
+                %a{:href => "#about"} About
+              %li
+                %a{:href => "#contact"} Contact
+    .container-fluid
+      .row-fluid
+        .span12
+          %ul.breadcrumb
+            - breadcrumbs_trail.each do |crumb|
+              - if crumb.identifier == @item.identifier
+                %li.active= crumb.label
+              - else
+                %li
+                  = link_to(crumb.label, crumb.reps.first)
+                  %span.divider /
+      .row-fluid
+        .span2.well.well-small
+          %ul.nav.nav-list
+            - if @item.readme?
+              %li.active
+                %i.icon-hand-right
+                = @item.basename
+            - elsif @item.directory.readme?
+              %li
+                %a{:href => item.directory.path}
+                  %i.icon-book
+                  = item.directory.basename
+            - @item.siblings.each do |sibling|
+              - if sibling.identifier == @item.identifier
+                %li.active
+                  %i.icon-hand-right
+                  %b= sibling.label
+              - else
+                %li
+                  %a{:href => sibling.path}
+                    - if sibling.directory?
+                      %i.icon-folder-open
+                    - elsif sibling.doc?
+                      %i.icon-book
+                    - else
+                      %i.icon-file
+                    = sibling.label
+        .span10~ yield
+    %script{:src => "/_static/jquery-1.9.1.min.js"}
+    %script{:src => "/_static/bootstrap/js/bootstrap.min.js"}
