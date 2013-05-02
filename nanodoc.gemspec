@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = Nanodoc::VERSION
   gem.authors       = ["Maciej Pasternacki"]
   gem.email         = ["maciej@pasternacki.net"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = "Codebase documentation generator"
+  gem.summary       = "Codebase documentation generator"
+  gem.homepage      = "https://github.com/3ofcoins/nanodoc/"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
@@ -25,6 +25,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency "haml"
   gem.add_dependency "rubypants"
   gem.add_dependency "deep_merge"
+  gem.add_dependency "minigit"
+  gem.add_dependency "nokogiri"
 
   gem.add_development_dependency "minitest"
   gem.add_development_dependency "rake"

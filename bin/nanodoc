@@ -2,7 +2,7 @@
 
 require 'nanodoc'
 
-site = Nanodoc::Site.new(ARGV[0])
+site = Nanodoc::Site.new(*ARGV)
 
 puts "Loading site data..."
 site.load

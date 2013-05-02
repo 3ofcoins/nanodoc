@@ -2,7 +2,7 @@
 
 preprocess do
   fill_missing_directories
-  @items['/'][:label] = "Project Root"
+  @items['/'][:label] = File.basename(@config[:source_dir])
 end
 
 compile '/_static*' do
@@ -20,7 +20,7 @@ compile '*' do
     when 'txt', 'text', nil
       filter :txt
     else
-      filter :rocco
+      filter :rocco unless item[:directory?]
     end
     layout 'default.haml'
     filter :relativize_paths, :type => :html

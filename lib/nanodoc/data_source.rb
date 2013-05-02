@@ -84,7 +84,8 @@ module NanoDoc
           gitignored_real =
             git.ls_files( { :others => true,
                             :ignored => true,
-                            :exclude_standard => true},
+                            :exclude_standard => true,
+                            :full_name => true },
                           '--', *some_files ).lines.map do |ln|
             git_root.join(ln.strip).realpath.to_s
           end

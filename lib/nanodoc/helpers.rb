@@ -5,7 +5,7 @@ module Nanodoc
   NO_README = <<EOF
 <div class="well well-large">
   <p class="text-center lead">
-    No <code>README</code> file here.
+    No <em>README</em> file here.
   </p>
 </div>
 EOF
@@ -28,7 +28,7 @@ EOF
 
       missing_intermediate_dirs.each do |dir_id|
         @items << Nanoc::Item.new(NO_README,
-          {:mime_type => 'text/html', :extension => 'html'},
+          {:mime_type => 'text/html', :extension => 'html', :directory? => true},
           dir_id,
           :binary => false)
       end

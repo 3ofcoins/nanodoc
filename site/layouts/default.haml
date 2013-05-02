@@ -21,15 +21,15 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand{:href => "#"} Project name
-          .nav-collapse
-            %ul.nav
-              %li.active
-                %a{:href => "#"} Home
-              %li
-                %a{:href => "#about"} About
-              %li
-                %a{:href => "#contact"} Contact
+          %a.brand{:href => "#"}= @config[:project_name]
+          -# .nav-collapse
+          -#   %ul.nav
+          -#     %li.active
+          -#       %a{:href => "#"} Home
+          -#     %li
+          -#       %a{:href => "#about"} About
+          -#     %li
+          -#       %a{:href => "#contact"} Contact
     .container-fluid
       .row-fluid
         .span12

@@ -4,7 +4,7 @@ require 'rocco'
 
 require 'nanodoc/site'
 
-Rocco::Markdown = RedcarpetCompat
+::Markdown = RedcarpetCompat
 
 module Nanodoc
   class RoccoFilter < Nanoc::Filter
@@ -20,7 +20,7 @@ module Nanodoc
     }
 
     def run(content, params={})
-      language = case File.basename(@item[:filename])
+      language = case @item.basename
                  when /\.(rb|pill)(\.in)?$/, /^(Gem|Rake|Thor|Berks|Vagrant|Vendor)file$/
                    'ruby'
                  when /\.(sh|init|default)(\.(in|erb))?$/

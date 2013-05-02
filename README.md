@@ -1,6 +1,11 @@
 # Nanodoc
 
-TODO: Write a gem description
+Generate source code documentation using Nanoc, Rocco, and
+Pygments.
+
+> *WARNING:* This is pre-alpha and I'd be surprised if it worked for
+> anybody besides myself. Actually, it doesn't even fully work for me
+> yet.
 
 ## Installation
 
@@ -18,7 +23,28 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Run `nanodoc` or `bundle exec nanodoc`
+2. Browse the generated `dir/` directory
+
+### Configuration
+
+Nanodoc looks for a config file in following locations:
+
+ - `./.nanodoc.yaml`
+ - `./.nanodoc.yml`
+ - `./nanodoc.yaml`
+ - `./nanodoc.yml`
+ - `./config/nanodoc.yaml`
+ - `./config/nanodoc.yml`
+
+This file can contain any settings [Nanoc](http://nanoc.ws/) accepts,
+and some of its own settings. Important ones are:
+
+ - `source_dir` (defaults to `'.'`)
+ - `output_dir` (defaults to `public'`)
+ - `project_name` (defaults to basename of the source directory)
+ - `ignore` - a list of `fnmatch` expressions to ignore (defaults to
+   empty list).
 
 ## Contributing
 
