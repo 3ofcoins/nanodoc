@@ -1,6 +1,6 @@
 require 'nanoc/helpers/html_escape'
 
-class TxtFilter < Nanoc::Filter
+class Nanodoc::TxtFilter < Nanoc::Filter
   identifier :txt
   type :text
 
