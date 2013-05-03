@@ -27,6 +27,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "nanoc"
   gem.add_dependency "nokogiri"
   gem.add_dependency "rubypants"
+  gem.add_dependency "thor"
 
   gem.add_development_dependency "minitest"
   gem.add_development_dependency "rake"

@@ -1,13 +1,4 @@
 #!/usr/bin/env ruby
 
-require 'nanodoc'
-
-site = Nanodoc::Site.new(*ARGV)
-
-puts "Loading site data..."
-site.load
-puts "done."
-
-puts "Compiling site..."
-site.compile
-puts "done."
+require 'nanodoc/cli'
+Nanodoc::CLI.start(ARGV)
