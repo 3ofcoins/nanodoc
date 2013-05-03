@@ -12,6 +12,8 @@ module Nanodoc
     identifier :literate_pyg
     type :text
 
+    requires 'haml'
+
     include Nanoc::Helpers::HTMLEscape
 
     HAML_TEMPLATE = Nanodoc::Site::ROOT_DIR.join('layouts', 'literate_pyg.haml').read()
