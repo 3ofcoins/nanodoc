@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title></title>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="../../../_static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="../../../_static/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="../../../_static/pygments.css" rel="stylesheet">
+    <link href="../../../_static/rocco.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">nanodoc</a>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span12">
+          <ul class="breadcrumb">
+            <li>
+              <a href="../../../">nanodoc</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="../../">lib</a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="../">nanodoc</a>
+              <span class="divider">/</span>
+            </li>
+            <li class="active">pygments2json.py</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span2 well well-small">
+          <ul class="nav nav-list">
+            <li>
+              <a href="../filters/">
+                <i class="icon-folder-open"></i>
+                filters
+              </a>
+            </li>
+            <li>
+              <a href="../data_source.rb/">
+                <i class="icon-file"></i>
+                data_source.rb
+              </a>
+            </li>
+            <li>
+              <a href="../filters.rb/">
+                <i class="icon-file"></i>
+                filters.rb
+              </a>
+            </li>
+            <li>
+              <a href="../helpers.rb/">
+                <i class="icon-file"></i>
+                helpers.rb
+              </a>
+            </li>
+            <li>
+              <a href="../item_ext.rb/">
+                <i class="icon-file"></i>
+                item_ext.rb
+              </a>
+            </li>
+            <li>
+              <a href="../pygments.rb/">
+                <i class="icon-file"></i>
+                pygments.rb
+              </a>
+            </li>
+            <li class="active">
+              <i class="icon-hand-right"></i>
+              <b>pygments2json.py</b>
+            </li>
+            <li>
+              <a href="../site.rb/">
+                <i class="icon-file"></i>
+                site.rb
+              </a>
+            </li>
+            <li>
+              <a href="../util.rb/">
+                <i class="icon-file"></i>
+                util.rb
+              </a>
+            </li>
+            <li>
+              <a href="../version.rb/">
+                <i class="icon-file"></i>
+                version.rb
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="span10">
+          <table class="table">
+            <tbody>
+              <tr id="line-3">
+                <td colspan="1">
+                  <div class="pilwrap">
+                    <a class="pilcrow" href="#line-3">
+                      3
+                      ¶
+                    </a>
+                  </div>
+                  
+                </td>
+                <td class="code"><pre><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+TOKEN_CSS_CLASSES <span class="o">=</span> { <span class="s">"</span><span class="s">Comment</span><span class="s">"</span>: <span class="s">"</span><span class="s">c</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Error</span><span class="s">"</span>: <span class="s">"</span><span class="s">err</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Keyword</span><span class="s">"</span>: <span class="s">"</span><span class="s">k</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Operator</span><span class="s">"</span>: <span class="s">"</span><span class="s">o</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Comment.Multiline</span><span class="s">"</span>: <span class="s">"</span><span class="s">cm</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Comment.Preproc</span><span class="s">"</span>: <span class="s">"</span><span class="s">cp</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Comment.Single</span><span class="s">"</span>: <span class="s">"</span><span class="s">c1</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Comment.Special</span><span class="s">"</span>: <span class="s">"</span><span class="s">cs</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Generic.Deleted</span><span class="s">"</span>: <span class="s">"</span><span class="s">gd</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Generic.Emph</span><span class="s">"</span>: <span class="s">"</span><span class="s">ge</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Generic.Error</span><span class="s">"</span>: <span class="s">"</span><span class="s">gr</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Generic.Heading</span><span class="s">"</span>: <span class="s">"</span><span class="s">gh</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Generic.Inserted</span><span class="s">"</span>: <span class="s">"</span><span class="s">gi</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Generic.Output</span><span class="s">"</span>: <span class="s">"</span><span class="s">go</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Generic.Prompt</span><span class="s">"</span>: <span class="s">"</span><span class="s">gp</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Generic.Strong</span><span class="s">"</span>: <span class="s">"</span><span class="s">gs</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Generic.Subheading</span><span class="s">"</span>: <span class="s">"</span><span class="s">gu</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Generic.Traceback</span><span class="s">"</span>: <span class="s">"</span><span class="s">gt</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Keyword.Constant</span><span class="s">"</span>: <span class="s">"</span><span class="s">kc</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Keyword.Declaration</span><span class="s">"</span>: <span class="s">"</span><span class="s">kd</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Keyword.Namespace</span><span class="s">"</span>: <span class="s">"</span><span class="s">kn</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Keyword.Pseudo</span><span class="s">"</span>: <span class="s">"</span><span class="s">kp</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Keyword.Reserved</span><span class="s">"</span>: <span class="s">"</span><span class="s">kr</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Keyword.Type</span><span class="s">"</span>: <span class="s">"</span><span class="s">kt</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.Number</span><span class="s">"</span>: <span class="s">"</span><span class="s">m</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.String</span><span class="s">"</span>: <span class="s">"</span><span class="s">s</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Attribute</span><span class="s">"</span>: <span class="s">"</span><span class="s">na</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Builtin</span><span class="s">"</span>: <span class="s">"</span><span class="s">nb</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Class</span><span class="s">"</span>: <span class="s">"</span><span class="s">nc</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Constant</span><span class="s">"</span>: <span class="s">"</span><span class="s">no</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Decorator</span><span class="s">"</span>: <span class="s">"</span><span class="s">nd</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Entity</span><span class="s">"</span>: <span class="s">"</span><span class="s">ni</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Exception</span><span class="s">"</span>: <span class="s">"</span><span class="s">ne</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Function</span><span class="s">"</span>: <span class="s">"</span><span class="s">nf</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Label</span><span class="s">"</span>: <span class="s">"</span><span class="s">nl</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Namespace</span><span class="s">"</span>: <span class="s">"</span><span class="s">nn</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Tag</span><span class="s">"</span>: <span class="s">"</span><span class="s">nt</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Variable</span><span class="s">"</span>: <span class="s">"</span><span class="s">nv</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Operator.Word</span><span class="s">"</span>: <span class="s">"</span><span class="s">ow</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Text.Whitespace</span><span class="s">"</span>: <span class="s">"</span><span class="s">w</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.Number.Float</span><span class="s">"</span>: <span class="s">"</span><span class="s">mf</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.Number.Hex</span><span class="s">"</span>: <span class="s">"</span><span class="s">mh</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.Number.Integer</span><span class="s">"</span>: <span class="s">"</span><span class="s">mi</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.Number.Oct</span><span class="s">"</span>: <span class="s">"</span><span class="s">mo</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.String.Backtick</span><span class="s">"</span>: <span class="s">"</span><span class="s">sb</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.String.Char</span><span class="s">"</span>: <span class="s">"</span><span class="s">sc</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.String.Doc</span><span class="s">"</span>: <span class="s">"</span><span class="s">sd</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.String.Double</span><span class="s">"</span>: <span class="s">"</span><span class="s">s2</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.String.Escape</span><span class="s">"</span>: <span class="s">"</span><span class="s">se</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.String.Heredoc</span><span class="s">"</span>: <span class="s">"</span><span class="s">sh</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.String.Interpol</span><span class="s">"</span>: <span class="s">"</span><span class="s">si</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.String.Other</span><span class="s">"</span>: <span class="s">"</span><span class="s">sx</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.String.Regex</span><span class="s">"</span>: <span class="s">"</span><span class="s">sr</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.String.Single</span><span class="s">"</span>: <span class="s">"</span><span class="s">s1</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.String.Symbol</span><span class="s">"</span>: <span class="s">"</span><span class="s">ss</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Builtin.Pseudo</span><span class="s">"</span>: <span class="s">"</span><span class="s">bp</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Variable.Class</span><span class="s">"</span>: <span class="s">"</span><span class="s">vc</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Variable.Global</span><span class="s">"</span>: <span class="s">"</span><span class="s">vg</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Name.Variable.Instance</span><span class="s">"</span>: <span class="s">"</span><span class="s">vi</span><span class="s">"</span>,
+                      <span class="s">"</span><span class="s">Literal.Number.Integer.Long</span><span class="s">"</span>: <span class="s">"</span><span class="s">il</span><span class="s">"</span>, }
+
+tokens <span class="o">=</span> []
+
+<span class="k">for</span> line <span class="ow">in</span> sys<span class="o">.</span>stdin:
+    token_type, text <span class="o">=</span> line<span class="o">.</span>split(<span class="s">"</span><span class="se">\t</span><span class="s">"</span>, <span class="mi">1</span>)
+    text <span class="o">=</span> <span class="nb">eval</span>(text, {<span class="s">"</span><span class="s">__builtins__</span><span class="s">"</span>: <span class="bp">None</span>}, {})
+    <span class="k">if</span> token_type<span class="o">.</span>startswith(<span class="s">'</span><span class="s">Token.</span><span class="s">'</span>):
+        token_type <span class="o">=</span> token_type[<span class="mi">6</span>:]
+    <span class="k">if</span> token_type <span class="o">==</span> <span class="s">'</span><span class="s">Text</span><span class="s">'</span>:
+        _tail <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">for</span> piece <span class="ow">in</span> text<span class="o">.</span>split(<span class="s">"</span><span class="se">\n</span><span class="s">"</span>):
+            <span class="k">if</span> _tail:
+                tokens<span class="o">.</span>append([<span class="s">"</span><span class="se">\n</span><span class="s">"</span>, <span class="s">'</span><span class="s">Text.Newline</span><span class="s">'</span>])
+            <span class="k">if</span> piece <span class="o">&lt;</span><span class="o">&gt;</span> <span class="s">"</span><span class="s">"</span>:
+                <span class="k">if</span> piece<span class="o">.</span>isspace():
+                    tokens<span class="o">.</span>append([piece, <span class="s">'</span><span class="s">Text.Whitespace</span><span class="s">'</span>])
+                <span class="k">else</span>:
+                    tokens<span class="o">.</span>append([piece, <span class="s">'</span><span class="s">Text</span><span class="s">'</span>])
+            _tail <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">else</span>:
+        tokens<span class="o">.</span>append([text, token_type, TOKEN_CSS_CLASSES<span class="o">.</span>get(token_type, <span class="bp">None</span>)])
+
+json<span class="o">.</span>dump(tokens, sys<span class="o">.</span>stdout)</pre></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="../../../_static/jquery-1.9.1.min.js"></script>
+    <script src="../../../_static/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

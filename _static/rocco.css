@@ -1,0 +1,13 @@
+td.docs { width: 33%;  vertical-align: top; }
+td.code { width: 66%;  vertical-align: top; }
+
+.pilwrap { position: relative; }
+.pilcrow { position: absolute;
+           top: 0;
+           right: 100%;
+           width: 1.5em;
+           height: 1.5em;
+           text-align: center;
+           vertical-align: center;
+           opacity: 0; }
+td.docs:hover .pilcrow { opacity: 1; }
