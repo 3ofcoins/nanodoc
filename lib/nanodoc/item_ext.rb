@@ -34,6 +34,7 @@ class Nanoc::Item
 
   def siblings
     rv = self.directory.children.compact
+    rv.delete_if { |item| item.identifier == '/_static/' }
     rv.sort_by do |sibling|
       tag = case
             # when sibling.readme? then 0
