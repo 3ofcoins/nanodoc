@@ -27,6 +27,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "deep_merge"
   gem.add_dependency "minigit"
   gem.add_dependency "nokogiri"
+  gem.add_dependency "multi_json"
 
   gem.add_development_dependency "minitest"
   gem.add_development_dependency "rake"
