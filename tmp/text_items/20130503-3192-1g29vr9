@@ -231,7 +231,7 @@
                 </td>
                 <td class="code"><pre>  desc <span class="ss">:gh_pages</span>, <span class="s2">"</span><span class="s2">Compile the documentation, commit it to gh-pages branch, and push</span><span class="s2">"</span>
   <span class="k">def</span> <span class="nf">gh_pages</span>
-    <span class="no">Dir</span><span class="o">.</span>mktmpdir <span class="k">do</span> <span class="o">|</span>tmpdir<span class="o">|</span></pre></td>
+    <span class="no">Dir</span><span class="o">.</span>mktmpdir <span class="k">do</span> <span class="o">|</span>output_dir<span class="o">|</span></pre></td>
               </tr>
               <tr id="line-47">
                 <td colspan="1">
@@ -243,8 +243,8 @@
                   </div>
                   <p>Use temporary directory to write to</p>
                 </td>
-                <td class="code"><pre>      say <span class="s2">"</span><span class="s2">Working in temporary directory: </span><span class="si">#{</span>tmpdir<span class="si">}</span><span class="s2">"</span>
-      compile(<span class="kp">nil</span>, <span class="ss">:output_dir</span> <span class="o">=</span><span class="o">&gt;</span> tmpdir)
+                <td class="code"><pre>      say <span class="s2">"</span><span class="s2">Working in temporary directory: </span><span class="si">#{</span>output_dir<span class="si">}</span><span class="s2">"</span>
+      compile(<span class="kp">nil</span>, <span class="ss">:output_dir</span> <span class="o">=</span><span class="o">&gt;</span> output_dir)
       <span class="no">Dir</span><span class="o">.</span>chdir(git<span class="o">.</span>git_work_tree) <span class="k">do</span></pre></td>
               </tr>
               <tr id="line-51">
@@ -306,7 +306,7 @@
                   GitHub serve the <code>/_static</code> directory.</p>
                 </td>
                 <td class="code"><pre>          say <span class="s2">"</span><span class="s2">Copying documentation...</span><span class="s2">"</span>
-          <span class="ss">FileUtils</span>:<span class="ss">:copy_entry</span> tmpdir, <span class="s1">'.'</span>, <span class="kp">true</span>, <span class="kp">true</span>
+          <span class="ss">FileUtils</span>:<span class="ss">:copy_entry</span> output_dir, <span class="s1">'.'</span>, <span class="kp">true</span>, <span class="kp">true</span>
           <span class="ss">FileUtils</span>:<span class="ss">:touch</span> <span class="s1">'.nojekyll'</span></pre></td>
               </tr>
               <tr id="line-76">
