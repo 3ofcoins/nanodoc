@@ -50,7 +50,7 @@ module NanoDoc
       end
     end
 
-## Helper methode, internal logic
+## Helper methods, internal logic
 ## ------------------------------
 
     def interesting_files
