@@ -292,13 +292,14 @@
                   </div>
                   <p>Scrub the working branch clean.</p>
                 </td>
-                <td class="code"><pre>          git<span class="o">.</span>rm({<span class="ss">:r</span> <span class="o">=</span><span class="o">&gt;</span> <span class="kp">true</span>, <span class="ss">:f</span> <span class="o">=</span><span class="o">&gt;</span> <span class="kp">true</span>, <span class="ss">:q</span> <span class="o">=</span><span class="o">&gt;</span> <span class="kp">true</span>, <span class="ss">:ignore_unmatch</span> <span class="o">=</span><span class="o">&gt;</span> <span class="kp">true</span>}, <span class="s1">'.'</span>)</pre></td>
+                <td class="code"><pre>          <span class="no">FileUtils</span><span class="o">.</span>rm_rf( <span class="no">Dir</span><span class="o">.</span>entries(<span class="s1">'.'</span>) <span class="o">-</span> <span class="o">[</span><span class="s1">'.'</span>, <span class="s1">'..'</span>, <span class="s1">'.git'</span><span class="o">]</span> )
+          git<span class="o">.</span>rm({<span class="ss">:r</span> <span class="o">=</span><span class="o">&gt;</span> <span class="kp">true</span>, <span class="ss">:f</span> <span class="o">=</span><span class="o">&gt;</span> <span class="kp">true</span>, <span class="ss">:q</span> <span class="o">=</span><span class="o">&gt;</span> <span class="kp">true</span>, <span class="ss">:ignore_unmatch</span> <span class="o">=</span><span class="o">&gt;</span> <span class="kp">true</span>}, <span class="s1">'.'</span>)</pre></td>
               </tr>
-              <tr id="line-70">
+              <tr id="line-71">
                 <td colspan="1">
                   <div class="pilwrap">
-                    <a class="pilcrow" href="#line-70">
-                      70
+                    <a class="pilcrow" href="#line-71">
+                      71
                       ¶
                     </a>
                   </div>
@@ -309,11 +310,11 @@
           <span class="ss">FileUtils</span>:<span class="ss">:copy_entry</span> output_dir, <span class="s1">'.'</span>, <span class="kp">true</span>, <span class="kp">true</span>
           <span class="ss">FileUtils</span>:<span class="ss">:touch</span> <span class="s1">'.nojekyll'</span></pre></td>
               </tr>
-              <tr id="line-76">
+              <tr id="line-77">
                 <td colspan="1">
                   <div class="pilwrap">
-                    <a class="pilcrow" href="#line-76">
-                      76
+                    <a class="pilcrow" href="#line-77">
+                      77
                       ¶
                     </a>
                   </div>
@@ -326,11 +327,11 @@
           git<span class="o">.</span>push <span class="s1">'origin'</span>, <span class="s1">'gh-pages'</span>
         <span class="k">ensure</span></pre></td>
               </tr>
-              <tr id="line-83">
+              <tr id="line-84">
                 <td colspan="1">
                   <div class="pilwrap">
-                    <a class="pilcrow" href="#line-83">
-                      83
+                    <a class="pilcrow" href="#line-84">
+                      84
                       ¶
                     </a>
                   </div>
@@ -346,22 +347,22 @@
     <span class="k">end</span>
   <span class="k">end</span></pre></td>
               </tr>
-              <tr id="line-94">
+              <tr id="line-95">
                 <td colspan="2">
                   <div class="pilwrap">
-                    <a class="pilcrow" href="#line-94">
-                      94
+                    <a class="pilcrow" href="#line-95">
+                      95
                       ¶
                     </a>
                   </div>
                   <h2 id="private-helpers">Private helpers</h2>
                 </td>
               </tr>
-              <tr id="line-97">
+              <tr id="line-98">
                 <td colspan="1">
                   <div class="pilwrap">
-                    <a class="pilcrow" href="#line-97">
-                      97
+                    <a class="pilcrow" href="#line-98">
+                      98
                       ¶
                     </a>
                   </div>
@@ -369,11 +370,11 @@
                 </td>
                 <td class="code"><pre>  <span class="kp">private</span></pre></td>
               </tr>
-              <tr id="line-99">
+              <tr id="line-100">
                 <td colspan="1">
                   <div class="pilwrap">
-                    <a class="pilcrow" href="#line-99">
-                      99
+                    <a class="pilcrow" href="#line-100">
+                      100
                       ¶
                     </a>
                   </div>
