@@ -27,7 +27,10 @@ Or install it yourself as:
 ## Usage
 
 1. Run `nanodoc` or `bundle exec nanodoc`
-2. Browse the generated `dir/` directory
+2. Browse the generated `dir/public/` directory
+
+If you use [Pow](http://pow.cx/), you can symlink the `doc` directory
+in `~/.pow` to easily view the generated docs.
 
 ### Configuration
 
