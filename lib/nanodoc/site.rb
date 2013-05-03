@@ -13,7 +13,7 @@ module Nanodoc
     def self.config(custom_config=nil)
       config = {
         :source_dir => '.',
-        :output_dir => 'public',
+        :output_dir => 'doc/public',
         :site_root => ROOT_DIR.to_s,
         :data_sources => [
           { :type => 'nanodoc',

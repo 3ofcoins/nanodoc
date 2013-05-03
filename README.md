@@ -41,7 +41,7 @@ This file can contain any settings [Nanoc](http://nanoc.ws/) accepts,
 and some of its own settings. Important ones are:
 
  - `source_dir` (defaults to `'.'`)
- - `output_dir` (defaults to `public'`)
+ - `output_dir` (defaults to `doc/public'`)
  - `project_name` (defaults to basename of the source directory)
  - `ignore` - a list of `fnmatch` expressions to ignore (defaults to
    empty list).
