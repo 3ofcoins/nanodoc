@@ -1,3 +1,18 @@
+table.literate td, table.literate th { vertical-aligh: top; }
+td.docs { width: 33%; }
+td.code { width: 66%; }
+
+.pilwrap { position: relative; }
+.pilcrow { position: absolute;
+           top: 0;
+           right: 100%;
+           width: 3em;
+           height: 1.5em;
+           text-align: right;
+           vertical-align: top;
+           opacity: 0; }
+table.literate tr:hover .pilcrow { opacity: 1; }
+
 /* pygmentize -S emacs -f html */
 .hll { background-color: #ffffcc }
 .c { color: #008800; font-style: italic } /* Comment */
