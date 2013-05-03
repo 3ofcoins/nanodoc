@@ -25,7 +25,7 @@ module Nanodoc
     def parsed
       load
       unless @parsed
-        @parsed = MultiJson.load(`pygmentize -f tokens #{@item[:filename]} | #{PYGMENTS2JSON}`)
+        @parsed = MultiJson.load(`pygmentize -f tokens #{@item[:filename]} | #{PYGMENTS2JSON}`).map(&:compact)
         store
       end
       @parsed
