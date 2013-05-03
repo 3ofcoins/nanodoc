@@ -19,8 +19,6 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency "nanoc"
   gem.add_dependency "kramdown"
-  gem.add_dependency "adsf"
-  gem.add_dependency "rocco"
   gem.add_dependency "mahoro"
   gem.add_dependency "haml"
   gem.add_dependency "rubypants"
@@ -28,6 +26,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "minigit"
   gem.add_dependency "nokogiri"
   gem.add_dependency "multi_json"
+  gem.add_dependency "micromachine"
 
   gem.add_development_dependency "minitest"
   gem.add_development_dependency "rake"

@@ -20,7 +20,7 @@ compile '*' do
     when 'txt', 'text', nil
       filter :txt
     else
-      filter :rocco unless item[:directory?]
+      filter :literate_pyg unless item[:directory?]
     end
     layout 'default.haml'
     filter :relativize_paths, :type => :html

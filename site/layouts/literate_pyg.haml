@@ -1,0 +1,12 @@
+%table.table
+  %tbody
+    - @sections.each do |section|
+      %tr{:id => "line-#{section[:at]}"}
+        %td{:colspan => section[:code_lines] ? 1 : 2}
+          %div.pilwrap
+            %a.pilcrow{:href => "#line-#{section[:at]}"}
+              = section[:at]
+              &#182;
+          = section[:comment]
+        - if section[:code]
+          %td.code~ section[:code]

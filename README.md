@@ -1,13 +1,16 @@
 # Nanodoc
 
-Generate source code documentation using Nanoc, Rocco, and
-Pygments.
+Generate a literate programming source code documentation using Nanoc
+and Pygments.
 
 > *WARNING:* This is pre-alpha and I'd be surprised if it worked for
 > anybody besides myself. Actually, it doesn't even fully work for me
 > yet.
 
 ## Installation
+
+Install [Pygments](http://pygments.org) to get syntax highlighting
+working. You should be able to run `pygmentize` on command line.
 
 Add this line to your application's Gemfile:
 
