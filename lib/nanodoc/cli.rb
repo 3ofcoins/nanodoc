@@ -51,7 +51,7 @@ class Nanodoc::CLI < Thor
         # Remember original branch and store changes.
         orig_branch = git.capturing.name_rev({:name_only => true}, 'HEAD').strip
         say "Stashing changes to #{orig_branch}..."
-        git.stash :u => true, :a => true
+        git.stash('save', {:all => true}, 'nanodoc-gh-pages')
         begin
           # Check out gh-pages if it exists, or create orphan branch
           # if there isn't one.
