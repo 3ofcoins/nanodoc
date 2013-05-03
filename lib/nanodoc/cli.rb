@@ -65,6 +65,7 @@ class Nanodoc::CLI < Thor
           end
 
           # Scrub the working branch clean.
+          FileUtils.rm_rf( Dir.entries('.') - ['.', '..', '.git'] )
           git.rm({:r => true, :f => true, :q => true, :ignore_unmatch => true}, '.')
 
           # Copy all the docs, and leave a `.nojekyll` file to make
