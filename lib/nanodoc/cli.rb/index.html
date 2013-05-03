@@ -258,7 +258,7 @@
                 </td>
                 <td class="code"><pre>        orig_branch <span class="o">=</span> git<span class="o">.</span>capturing<span class="o">.</span>name_rev({<span class="ss">:name_only</span> <span class="o">=</span><span class="o">&gt;</span> <span class="kp">true</span>}, <span class="s1">'HEAD'</span>)<span class="o">.</span>strip
         say <span class="s2">"</span><span class="s2">Stashing changes to </span><span class="si">#{</span>orig_branch<span class="si">}</span><span class="s2">...</span><span class="s2">"</span>
-        git<span class="o">.</span>stash <span class="ss">:u</span> <span class="o">=</span><span class="o">&gt;</span> <span class="kp">true</span>, <span class="ss">:a</span> <span class="o">=</span><span class="o">&gt;</span> <span class="kp">true</span>
+        git<span class="o">.</span>stash(<span class="s1">'save'</span>, {<span class="ss">:all</span> <span class="o">=</span><span class="o">&gt;</span> <span class="kp">true</span>}, <span class="s1">'nanodoc-gh-pages'</span>)
         <span class="k">begin</span></pre></td>
               </tr>
               <tr id="line-56">
