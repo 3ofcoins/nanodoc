@@ -72,18 +72,15 @@ for line in sys.stdin:
     text = eval(text, {"__builtins__": None}, {})
     if token_type.startswith('Token.'):
         token_type = token_type[6:]
-    if token_type == 'Text':
-        _tail = False
-        for piece in text.split("\n"):
-            if _tail:
-                tokens.append(["\n", 'Text.Newline'])
-            if piece <> "":
-                if piece.isspace():
-                    tokens.append([piece, 'Text.Whitespace'])
-                else:
-                    tokens.append([piece, 'Text'])
-            _tail = True
-    else:
-        tokens.append([text, token_type, TOKEN_CSS_CLASSES.get(token_type, None)])
+    _tail = False
+    for piece in text.split("\n"):
+        if _tail:
+            tokens.append(["\n", 'Text.Newline'])
+        if piece <> "":
+            if piece.isspace():
+                tokens.append([piece, 'Text.Whitespace'])
+            else:
+                tokens.append([piece, token_type, TOKEN_CSS_CLASSES.get(token_type, None)])
+        _tail = True
 
 json.dump(tokens, sys.stdout)
