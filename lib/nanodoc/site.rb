@@ -5,6 +5,7 @@ require 'deep_merge'
 require 'nanoc'
 
 require 'nanodoc/util'
+require 'nanodoc/version'
 
 module Nanodoc
   class Site < Nanoc::Site
@@ -22,7 +23,10 @@ module Nanodoc
           { :type => 'static',
             :prefix => ROOT_DIR.join('static').to_s,
             :items_root => '/_static/' } ],
-        :ignore => [] }
+        :ignore => [],
+        :nanodoc => {
+          :version => Nanodoc::VERSION
+        }}
 
       custom_config ||= [
         '.nanodoc.yaml',
