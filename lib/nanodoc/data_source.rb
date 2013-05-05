@@ -9,8 +9,10 @@ require 'nanodoc/util'
 
 module NanoDoc
 
+##
 ## Nanodoc::DataSource
 ## ===================
+##
 
   class DataSource < Nanoc::DataSource
     include Nanoc::DataSources::Filesystem
@@ -18,8 +20,11 @@ module NanoDoc
 
     identifier :nanodoc
 
+##
 ## Nanoc methods
 ## -------------
+##
+
     def items
       source_prefix_length = source_realpath.to_s.length + 1
       interesting_files.map do |filename|
@@ -38,9 +43,13 @@ module NanoDoc
       end
     end
 
+##
+
     def identifier_for_filename(filename)
       filename.to_s.sub(/(^|\/)README(\.[^\.\/]+)?$/, '').cleaned_identifier
     end
+
+##
 
     def filename_for(base_filename, ext)
       case ext
@@ -50,8 +59,10 @@ module NanoDoc
       end
     end
 
+##
 ## Helper methods, internal logic
 ## ------------------------------
+##
 
     def interesting_files
       # Start with a set of all files in `dir_name` given to us by
@@ -117,8 +128,10 @@ module NanoDoc
       @site.config[:ignore].any? { |pattern| path.fnmatch?(pattern) }
     end
 
+##
 ## Accessors and cached stuff
 ## --------------------------
+##
 
     def use_gitignore?
       if @site.config.key?(:use_gitignore)
