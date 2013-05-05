@@ -3,190 +3,165 @@
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
+    <meta content="Nanodoc 0.0.1" name="generator">
     <title></title>
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link href="../../../_static/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
     <link href="../../../_static/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="../../../_static/nanodoc.css" rel="stylesheet">
   </head>
   <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="../../../">nanodoc</a>
+    <div id="wrap">
+      <header class="navbar">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="../../../">nanodoc</a>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span12">
-          <ul class="breadcrumb">
-            <li>
-              <a href="../../../">nanodoc</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../../">lib</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../">nanodoc</a>
-              <span class="divider">/</span>
-            </li>
-            <li class="active">util.rb</li>
-          </ul>
+      </header>
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <nav class="span12">
+            <ul class="breadcrumb">
+              <li>
+                <a href="../../../">nanodoc</a>
+                <span class="divider">/</span>
+              </li>
+              <li>
+                <a href="../../">lib</a>
+                <span class="divider">/</span>
+              </li>
+              <li>
+                <a href="../">nanodoc</a>
+                <span class="divider">/</span>
+              </li>
+              <li class="active">util.rb</li>
+            </ul>
+          </nav>
         </div>
-      </div>
-      <div class="row-fluid">
-        <div class="span2 well well-small">
-          <ul class="nav nav-list">
-            <li>
-              <a href="../filters/">
-                <i class="icon-folder-open"></i>
-                filters
-              </a>
-            </li>
-            <li>
-              <a href="../cli.rb/">
-                <i class="icon-file"></i>
-                cli.rb
-              </a>
-            </li>
-            <li>
-              <a href="../data_source.rb/">
-                <i class="icon-file"></i>
-                data_source.rb
-              </a>
-            </li>
-            <li>
-              <a href="../filters.rb/">
-                <i class="icon-file"></i>
-                filters.rb
-              </a>
-            </li>
-            <li>
-              <a href="../helpers.rb/">
-                <i class="icon-file"></i>
-                helpers.rb
-              </a>
-            </li>
-            <li>
-              <a href="../item_ext.rb/">
-                <i class="icon-file"></i>
-                item_ext.rb
-              </a>
-            </li>
-            <li>
-              <a href="../pygments.rb/">
-                <i class="icon-file"></i>
-                pygments.rb
-              </a>
-            </li>
-            <li>
-              <a href="../pygments2json.py/">
-                <i class="icon-file"></i>
-                pygments2json.py
-              </a>
-            </li>
-            <li>
-              <a href="../site.rb/">
-                <i class="icon-file"></i>
-                site.rb
-              </a>
-            </li>
-            <li class="active">
-              <i class="icon-hand-right"></i>
-              <b>util.rb</b>
-            </li>
-            <li>
-              <a href="../version.rb/">
-                <i class="icon-file"></i>
-                version.rb
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="span10">
-          <table class="table literate">
-            <tbody>
-              <tr id="line-1">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-1">
-                      1
-                      ¶
-                    </a>
-                  </div>
-                  
-                </td>
-                <td class="code"><pre><span class="nb">require</span> <span class="s1">'pathname'</span></pre></td>
-              </tr>
-              <tr id="line-3">
-                <td colspan="2">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-3">
-                      3
-                      ¶
-                    </a>
-                  </div>
-                  <h1 id="nanodocutil">Nanodoc::Util</h1>
-                  
-                  <p>A collection of utility functions</p>
-                </td>
-              </tr>
-              <tr id="line-8">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-8">
-                      8
-                      ¶
-                    </a>
-                  </div>
-                  
-                </td>
-                <td class="code"><pre><span class="k">module</span> <span class="nn">Nanodoc::Util</span></pre></td>
-              </tr>
-              <tr id="line-10">
-                <td colspan="2">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-10">
-                      10
-                      ¶
-                    </a>
-                  </div>
-                  <h2 id="wouldberealpathpath">would_be_realpath(path)</h2>
-                  
-                  <p>If <code>path</code> exists, return its realpath.  If <code>path</code> doesn’t
-                  exist, climb up to find closest existing parent, get its
-                  realpath, and then join the missing part.</p>
-                  
-                  <p>This method returns a <code>Pathname</code> when given a <code>Pathname</code>, and
-                  a string when given a string.</p>
-                </td>
-              </tr>
-              <tr id="line-19">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-19">
-                      19
-                      ¶
-                    </a>
-                  </div>
-                  
-                </td>
-                <td class="code"><pre>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">would_be_realpath</span>(path)
+        <div class="row-fluid">
+          <div class="span2 well well-small">
+            <ul class="nav nav-list">
+              <li>
+                <a href="../filters/">
+                  <i class="icon-folder-open"></i>
+                  filters
+                </a>
+              </li>
+              <li>
+                <a href="../cli.rb/">
+                  <i class="icon-file"></i>
+                  cli.rb
+                </a>
+              </li>
+              <li>
+                <a href="../data_source.rb/">
+                  <i class="icon-file"></i>
+                  data_source.rb
+                </a>
+              </li>
+              <li>
+                <a href="../filters.rb/">
+                  <i class="icon-file"></i>
+                  filters.rb
+                </a>
+              </li>
+              <li>
+                <a href="../helpers.rb/">
+                  <i class="icon-file"></i>
+                  helpers.rb
+                </a>
+              </li>
+              <li>
+                <a href="../item_ext.rb/">
+                  <i class="icon-file"></i>
+                  item_ext.rb
+                </a>
+              </li>
+              <li>
+                <a href="../pygments.rb/">
+                  <i class="icon-file"></i>
+                  pygments.rb
+                </a>
+              </li>
+              <li>
+                <a href="../pygments2json.py/">
+                  <i class="icon-file"></i>
+                  pygments2json.py
+                </a>
+              </li>
+              <li>
+                <a href="../site.rb/">
+                  <i class="icon-file"></i>
+                  site.rb
+                </a>
+              </li>
+              <li class="active">
+                <i class="icon-hand-right"></i>
+                <b>util.rb</b>
+              </li>
+              <li>
+                <a href="../version.rb/">
+                  <i class="icon-file"></i>
+                  version.rb
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="span10">
+            <table class="table literate">
+              <tbody>
+                <tr id="line-1">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-1">
+                        1
+                        ¶
+                      </a>
+                    </div>
+                    
+                  </td>
+                  <td class="code"><pre><span class="nb">require</span> <span class="s1">'pathname'</span></pre></td>
+                </tr>
+                <tr id="line-3">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-3">
+                        3
+                        ¶
+                      </a>
+                    </div>
+                    <h1 id="nanodocutil">Nanodoc::Util</h1>
+                    
+                    <p>A collection of utility functions</p>
+                  </td>
+                  <td class="code"><pre><span class="k">module</span> <span class="nn">Nanodoc::Util</span></pre></td>
+                </tr>
+                <tr id="line-10">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-10">
+                        10
+                        ¶
+                      </a>
+                    </div>
+                    <h2 id="wouldberealpathpath">would_be_realpath(path)</h2>
+                    
+                    <p>If <code>path</code> exists, return its realpath.  If <code>path</code> doesn’t
+                    exist, climb up to find closest existing parent, get its
+                    realpath, and then join the missing part.</p>
+                    
+                    <p>This method returns a <code>Pathname</code> when given a <code>Pathname</code>, and
+                    a string when given a string.</p>
+                  </td>
+                  <td class="code"><pre>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">would_be_realpath</span>(path)
     <span class="k">return</span> would_be_realpath(<span class="no">Pathname</span><span class="o">.</span>new(path))<span class="o">.</span>to_s <span class="k">unless</span> path<span class="o">.</span>is_a?(<span class="no">Pathname</span>)
     path<span class="o">.</span>realpath
   <span class="k">rescue</span> <span class="ss">Errno</span>:<span class="ss">:ENOENT</span>
@@ -197,12 +172,26 @@
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span></pre></td>
-              </tr>
-            </tbody>
-          </table>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
+      <div id="push"></div>
     </div>
+    <footer>
+      <div class="container-fluid text-center">
+        <ul class="inline">
+          <li>
+            Generated by
+            <a href="http://3ofcoins.github.io/nanodoc/">Nanodoc</a>
+            version
+            0.0.1
+          </li>
+        </ul>
+      </div>
+    </footer>
     <script src="../../../_static/jquery-1.9.1.min.js"></script>
     <script src="../../../_static/bootstrap/js/bootstrap.min.js"></script>
   </body>

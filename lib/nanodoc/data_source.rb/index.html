@@ -3,135 +3,132 @@
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
+    <meta content="Nanodoc 0.0.1" name="generator">
     <title></title>
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link href="../../../_static/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
     <link href="../../../_static/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="../../../_static/nanodoc.css" rel="stylesheet">
   </head>
   <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="../../../">nanodoc</a>
+    <div id="wrap">
+      <header class="navbar">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="../../../">nanodoc</a>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span12">
-          <ul class="breadcrumb">
-            <li>
-              <a href="../../../">nanodoc</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../../">lib</a>
-              <span class="divider">/</span>
-            </li>
-            <li>
-              <a href="../">nanodoc</a>
-              <span class="divider">/</span>
-            </li>
-            <li class="active">data_source.rb</li>
-          </ul>
+      </header>
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <nav class="span12">
+            <ul class="breadcrumb">
+              <li>
+                <a href="../../../">nanodoc</a>
+                <span class="divider">/</span>
+              </li>
+              <li>
+                <a href="../../">lib</a>
+                <span class="divider">/</span>
+              </li>
+              <li>
+                <a href="../">nanodoc</a>
+                <span class="divider">/</span>
+              </li>
+              <li class="active">data_source.rb</li>
+            </ul>
+          </nav>
         </div>
-      </div>
-      <div class="row-fluid">
-        <div class="span2 well well-small">
-          <ul class="nav nav-list">
-            <li>
-              <a href="../filters/">
-                <i class="icon-folder-open"></i>
-                filters
-              </a>
-            </li>
-            <li>
-              <a href="../cli.rb/">
-                <i class="icon-file"></i>
-                cli.rb
-              </a>
-            </li>
-            <li class="active">
-              <i class="icon-hand-right"></i>
-              <b>data_source.rb</b>
-            </li>
-            <li>
-              <a href="../filters.rb/">
-                <i class="icon-file"></i>
-                filters.rb
-              </a>
-            </li>
-            <li>
-              <a href="../helpers.rb/">
-                <i class="icon-file"></i>
-                helpers.rb
-              </a>
-            </li>
-            <li>
-              <a href="../item_ext.rb/">
-                <i class="icon-file"></i>
-                item_ext.rb
-              </a>
-            </li>
-            <li>
-              <a href="../pygments.rb/">
-                <i class="icon-file"></i>
-                pygments.rb
-              </a>
-            </li>
-            <li>
-              <a href="../pygments2json.py/">
-                <i class="icon-file"></i>
-                pygments2json.py
-              </a>
-            </li>
-            <li>
-              <a href="../site.rb/">
-                <i class="icon-file"></i>
-                site.rb
-              </a>
-            </li>
-            <li>
-              <a href="../util.rb/">
-                <i class="icon-file"></i>
-                util.rb
-              </a>
-            </li>
-            <li>
-              <a href="../version.rb/">
-                <i class="icon-file"></i>
-                version.rb
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="span10">
-          <table class="table literate">
-            <tbody>
-              <tr id="line-1">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-1">
-                      1
-                      ¶
-                    </a>
-                  </div>
-                  
-                </td>
-                <td class="code"><pre><span class="nb">require</span> <span class="s1">'set'</span>
+        <div class="row-fluid">
+          <div class="span2 well well-small">
+            <ul class="nav nav-list">
+              <li>
+                <a href="../filters/">
+                  <i class="icon-folder-open"></i>
+                  filters
+                </a>
+              </li>
+              <li>
+                <a href="../cli.rb/">
+                  <i class="icon-file"></i>
+                  cli.rb
+                </a>
+              </li>
+              <li class="active">
+                <i class="icon-hand-right"></i>
+                <b>data_source.rb</b>
+              </li>
+              <li>
+                <a href="../filters.rb/">
+                  <i class="icon-file"></i>
+                  filters.rb
+                </a>
+              </li>
+              <li>
+                <a href="../helpers.rb/">
+                  <i class="icon-file"></i>
+                  helpers.rb
+                </a>
+              </li>
+              <li>
+                <a href="../item_ext.rb/">
+                  <i class="icon-file"></i>
+                  item_ext.rb
+                </a>
+              </li>
+              <li>
+                <a href="../pygments.rb/">
+                  <i class="icon-file"></i>
+                  pygments.rb
+                </a>
+              </li>
+              <li>
+                <a href="../pygments2json.py/">
+                  <i class="icon-file"></i>
+                  pygments2json.py
+                </a>
+              </li>
+              <li>
+                <a href="../site.rb/">
+                  <i class="icon-file"></i>
+                  site.rb
+                </a>
+              </li>
+              <li>
+                <a href="../util.rb/">
+                  <i class="icon-file"></i>
+                  util.rb
+                </a>
+              </li>
+              <li>
+                <a href="../version.rb/">
+                  <i class="icon-file"></i>
+                  version.rb
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="span10">
+            <table class="table literate">
+              <tbody>
+                <tr id="line-1">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-1">
+                        1
+                        ¶
+                      </a>
+                    </div>
+                    
+                  </td>
+                  <td class="code"><pre><span class="nb">require</span> <span class="s1">'set'</span>
 <span class="nb">require</span> <span class="s1">'mahoro'</span>
 <span class="nb">require</span> <span class="s1">'minigit'</span>
 <span class="nb">require</span> <span class="s1">'pathname'</span>
@@ -141,56 +138,56 @@
 <span class="nb">require</span> <span class="s1">'nanodoc/util'</span>
 
 <span class="k">module</span> <span class="nn">NanoDoc</span></pre></td>
-              </tr>
-              <tr id="line-12">
-                <td colspan="2">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-12">
-                      12
-                      ¶
-                    </a>
-                  </div>
-                  <h1 id="nanodocdatasource">Nanodoc::DataSource</h1>
-                </td>
-              </tr>
-              <tr id="line-15">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-15">
-                      15
-                      ¶
-                    </a>
-                  </div>
-                  
-                </td>
-                <td class="code"><pre>  <span class="k">class</span> <span class="nc">DataSource</span> <span class="o">&lt;</span> <span class="ss">Nanoc</span>:<span class="ss">:DataSource</span>
+                </tr>
+                <tr id="line-12">
+                  <td colspan="2">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-12">
+                        12
+                        ¶
+                      </a>
+                    </div>
+                    <h1 id="nanodocdatasource">Nanodoc::DataSource</h1>
+                  </td>
+                </tr>
+                <tr id="line-17">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-17">
+                        17
+                        ¶
+                      </a>
+                    </div>
+                    
+                  </td>
+                  <td class="code"><pre>  <span class="k">class</span> <span class="nc">DataSource</span> <span class="o">&lt;</span> <span class="ss">Nanoc</span>:<span class="ss">:DataSource</span>
     <span class="kp">include</span> <span class="ss">Nanoc</span>:<span class="ss">:DataSources</span><span class="o">::</span><span class="no">Filesystem</span>
     <span class="kp">extend</span> <span class="ss">Nanoc</span>:<span class="ss">:Memoization</span>
 
     identifier <span class="ss">:nanodoc</span></pre></td>
-              </tr>
-              <tr id="line-21">
-                <td colspan="2">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-21">
-                      21
-                      ¶
-                    </a>
-                  </div>
-                  <h2 id="nanoc-methods">Nanoc methods</h2>
-                </td>
-              </tr>
-              <tr id="line-23">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-23">
-                      23
-                      ¶
-                    </a>
-                  </div>
-                  
-                </td>
-                <td class="code"><pre>    <span class="k">def</span> <span class="nf">items</span>
+                </tr>
+                <tr id="line-23">
+                  <td colspan="2">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-23">
+                        23
+                        ¶
+                      </a>
+                    </div>
+                    <h2 id="nanoc-methods">Nanoc methods</h2>
+                  </td>
+                </tr>
+                <tr id="line-28">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-28">
+                        28
+                        ¶
+                      </a>
+                    </div>
+                    
+                  </td>
+                  <td class="code"><pre>    <span class="k">def</span> <span class="nf">items</span>
       source_prefix_length <span class="o">=</span> source_realpath<span class="o">.</span>to_s<span class="o">.</span>length <span class="o">+</span> <span class="mi">1</span>
       interesting_files<span class="o">.</span>map <span class="k">do</span> <span class="o">|</span>filename<span class="o">|</span>
         pathname <span class="o">=</span> <span class="no">Pathname</span><span class="o">.</span>new(filename)
@@ -206,59 +203,79 @@
           <span class="ss">:binary</span> <span class="o">=</span><span class="o">&gt;</span> is_binary,
           <span class="ss">:mtime</span> <span class="o">=</span><span class="o">&gt;</span> mtime )
       <span class="k">end</span>
-    <span class="k">end</span>
-
-    <span class="k">def</span> <span class="nf">identifier_for_filename</span>(filename)
+    <span class="k">end</span></pre></td>
+                </tr>
+                <tr id="line-47">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-47">
+                        47
+                        ¶
+                      </a>
+                    </div>
+                    
+                  </td>
+                  <td class="code"><pre>    <span class="k">def</span> <span class="nf">identifier_for_filename</span>(filename)
       filename<span class="o">.</span>to_s<span class="o">.</span>sub(<span class="sr">/</span><span class="sr">(^|</span><span class="sr">\/</span><span class="sr">)README(</span><span class="sr">\</span><span class="sr">.[^</span><span class="sr">\</span><span class="sr">.</span><span class="sr">\/</span><span class="sr">]+)?$</span><span class="sr">/</span>, <span class="s1">''</span>)<span class="o">.</span>cleaned_identifier
-    <span class="k">end</span>
-
-    <span class="k">def</span> <span class="nf">filename_for</span>(base_filename, ext)
+    <span class="k">end</span></pre></td>
+                </tr>
+                <tr id="line-53">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-53">
+                        53
+                        ¶
+                      </a>
+                    </div>
+                    
+                  </td>
+                  <td class="code"><pre>    <span class="k">def</span> <span class="nf">filename_for</span>(base_filename, ext)
       <span class="k">case</span> ext
       <span class="k">when</span> <span class="kp">nil</span> <span class="k">then</span> <span class="kp">nil</span>
       <span class="k">when</span> <span class="s1">''</span> <span class="k">then</span> base_filename
       <span class="k">else</span> <span class="s2">"</span><span class="si">#{</span>base_filename<span class="si">}</span><span class="s2">.</span><span class="si">#{</span>ext<span class="si">}</span><span class="s2">"</span>
       <span class="k">end</span>
     <span class="k">end</span></pre></td>
-              </tr>
-              <tr id="line-53">
-                <td colspan="2">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-53">
-                      53
-                      ¶
-                    </a>
-                  </div>
-                  <h2 id="helper-methods-internal-logic">Helper methods, internal logic</h2>
-                </td>
-              </tr>
-              <tr id="line-56">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-56">
-                      56
-                      ¶
-                    </a>
-                  </div>
-                  
-                </td>
-                <td class="code"><pre>    <span class="k">def</span> <span class="nf">interesting_files</span>
+                </tr>
+                <tr id="line-62">
+                  <td colspan="2">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-62">
+                        62
+                        ¶
+                      </a>
+                    </div>
+                    <h2 id="helper-methods-internal-logic">Helper methods, internal logic</h2>
+                  </td>
+                </tr>
+                <tr id="line-67">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-67">
+                        67
+                        ¶
+                      </a>
+                    </div>
+                    
+                  </td>
+                  <td class="code"><pre>    <span class="k">def</span> <span class="nf">interesting_files</span>
       files <span class="o">=</span> <span class="no">Set</span><span class="o">.</span>new(all_files_in(source_realpath<span class="o">.</span>to_s)<span class="o">.</span>
         map! { <span class="o">|</span>filename<span class="o">|</span> <span class="no">Pathname</span><span class="o">.</span>new(filename) })</pre></td>
-              </tr>
-              <tr id="line-62">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-62">
-                      62
-                      ¶
-                    </a>
-                  </div>
-                  <p>We cache mapping of realpath to “our” file name, to allow
-                  other ignoring rules work on full file names. Key is a
-                  realpath as string, value is array of files having that
-                  realpath.</p>
-                </td>
-                <td class="code"><pre>      realpath_files <span class="o">=</span> {}
+                </tr>
+                <tr id="line-73">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-73">
+                        73
+                        ¶
+                      </a>
+                    </div>
+                    <p>We cache mapping of realpath to “our” file name, to allow
+                    other ignoring rules work on full file names. Key is a
+                    realpath as string, value is array of files having that
+                    realpath.</p>
+                  </td>
+                  <td class="code"><pre>      realpath_files <span class="o">=</span> {}
 
       fs_root <span class="o">=</span> <span class="no">Pathname</span><span class="o">.</span>new(<span class="s1">'/'</span>)
       files<span class="o">.</span>each <span class="k">do</span> <span class="o">|</span>path<span class="o">|</span>
@@ -271,18 +288,18 @@
           realpath_files<span class="o">[</span>realpath_s<span class="o">]</span> <span class="o">&lt;&lt;</span> path
         <span class="k">end</span>
       <span class="k">end</span></pre></td>
-              </tr>
-              <tr id="line-80">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-80">
-                      80
-                      ¶
-                    </a>
-                  </div>
-                  <p>Reject a list of realpaths from files that are ignored by git</p>
-                </td>
-                <td class="code"><pre>      <span class="k">if</span> use_gitignore?
+                </tr>
+                <tr id="line-91">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-91">
+                        91
+                        ¶
+                      </a>
+                    </div>
+                    <p>Reject a list of realpaths from files that are ignored by git</p>
+                  </td>
+                  <td class="code"><pre>      <span class="k">if</span> use_gitignore?
         git_root <span class="o">=</span> <span class="no">Pathname</span><span class="o">.</span>new(git<span class="o">.</span>git_work_tree)
         files<span class="o">.</span>each_slice(<span class="mi">512</span>) <span class="k">do</span> <span class="o">|</span>some_files<span class="o">|</span>
           gitignored_real <span class="o">=</span>
@@ -301,94 +318,94 @@
 
       files
     <span class="k">end</span></pre></td>
-              </tr>
-              <tr id="line-101">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-101">
-                      101
-                      ¶
-                    </a>
-                  </div>
-                  <p><code>path</code> should be a realpath string</p>
-                </td>
-                <td class="code"><pre>    <span class="k">def</span> <span class="nf">ignored?</span>(path)</pre></td>
-              </tr>
-              <tr id="line-103">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-103">
-                      103
-                      ¶
-                    </a>
-                  </div>
-                  <p>Ignore files that are in the output directory</p>
-                </td>
-                <td class="code"><pre>      <span class="k">return</span> <span class="kp">true</span> <span class="k">unless</span> <span class="s1">'..'</span> <span class="o">==</span> path<span class="o">.</span>relative_path_from(output_realpath)<span class="o">.</span>descend { <span class="o">|</span><span class="nb">p</span><span class="o">|</span> <span class="k">break</span> <span class="nb">p</span><span class="o">.</span>to_s }
+                </tr>
+                <tr id="line-112">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-112">
+                        112
+                        ¶
+                      </a>
+                    </div>
+                    <p><code>path</code> should be a realpath string</p>
+                  </td>
+                  <td class="code"><pre>    <span class="k">def</span> <span class="nf">ignored?</span>(path)</pre></td>
+                </tr>
+                <tr id="line-114">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-114">
+                        114
+                        ¶
+                      </a>
+                    </div>
+                    <p>Ignore files that are in the output directory</p>
+                  </td>
+                  <td class="code"><pre>      <span class="k">return</span> <span class="kp">true</span> <span class="k">unless</span> <span class="s1">'..'</span> <span class="o">==</span> path<span class="o">.</span>relative_path_from(output_realpath)<span class="o">.</span>descend { <span class="o">|</span><span class="nb">p</span><span class="o">|</span> <span class="k">break</span> <span class="nb">p</span><span class="o">.</span>to_s }
 
       path <span class="o">=</span> <span class="no">Pathname</span><span class="o">.</span>new(path)<span class="o">.</span>relative_path_from(source_realpath)</pre></td>
-              </tr>
-              <tr id="line-108">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-108">
-                      108
-                      ¶
-                    </a>
-                  </div>
-                  <p>Ignore files that are above base directory (<code>break</code>ing from
-                  <code>Pathname#descend</code> gives us first element on the path)</p>
-                </td>
-                <td class="code"><pre>      <span class="k">return</span> <span class="kp">true</span> <span class="k">if</span> <span class="s1">'..'</span> <span class="o">==</span> path<span class="o">.</span>descend { <span class="o">|</span><span class="nb">p</span><span class="o">|</span> <span class="k">break</span> <span class="nb">p</span><span class="o">.</span>to_s }</pre></td>
-              </tr>
-              <tr id="line-112">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-112">
-                      112
-                      ¶
-                    </a>
-                  </div>
-                  <p>Absolutize the relative path by attaching it to filesystem
-                  root.</p>
-                </td>
-                <td class="code"><pre>      path <span class="o">=</span> <span class="no">Pathname</span><span class="o">.</span>new(<span class="s1">'/'</span>)<span class="o">.</span>join(path)</pre></td>
-              </tr>
-              <tr id="line-116">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-116">
-                      116
-                      ¶
-                    </a>
-                  </div>
-                  <p>Finally, ignore if any of configured ignore patterns match.</p>
-                </td>
-                <td class="code"><pre>      <span class="vi">@site</span><span class="o">.</span>config<span class="o">[</span><span class="ss">:ignore</span><span class="o">]</span><span class="o">.</span>any? { <span class="o">|</span>pattern<span class="o">|</span> path<span class="o">.</span>fnmatch?(pattern) }
+                </tr>
+                <tr id="line-119">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-119">
+                        119
+                        ¶
+                      </a>
+                    </div>
+                    <p>Ignore files that are above base directory (<code>break</code>ing from
+                    <code>Pathname#descend</code> gives us first element on the path)</p>
+                  </td>
+                  <td class="code"><pre>      <span class="k">return</span> <span class="kp">true</span> <span class="k">if</span> <span class="s1">'..'</span> <span class="o">==</span> path<span class="o">.</span>descend { <span class="o">|</span><span class="nb">p</span><span class="o">|</span> <span class="k">break</span> <span class="nb">p</span><span class="o">.</span>to_s }</pre></td>
+                </tr>
+                <tr id="line-123">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-123">
+                        123
+                        ¶
+                      </a>
+                    </div>
+                    <p>Absolutize the relative path by attaching it to filesystem
+                    root.</p>
+                  </td>
+                  <td class="code"><pre>      path <span class="o">=</span> <span class="no">Pathname</span><span class="o">.</span>new(<span class="s1">'/'</span>)<span class="o">.</span>join(path)</pre></td>
+                </tr>
+                <tr id="line-127">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-127">
+                        127
+                        ¶
+                      </a>
+                    </div>
+                    <p>Finally, ignore if any of configured ignore patterns match.</p>
+                  </td>
+                  <td class="code"><pre>      <span class="vi">@site</span><span class="o">.</span>config<span class="o">[</span><span class="ss">:ignore</span><span class="o">]</span><span class="o">.</span>any? { <span class="o">|</span>pattern<span class="o">|</span> path<span class="o">.</span>fnmatch?(pattern) }
     <span class="k">end</span></pre></td>
-              </tr>
-              <tr id="line-120">
-                <td colspan="2">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-120">
-                      120
-                      ¶
-                    </a>
-                  </div>
-                  <h2 id="accessors-and-cached-stuff">Accessors and cached stuff</h2>
-                </td>
-              </tr>
-              <tr id="line-123">
-                <td colspan="1">
-                  <div class="pilwrap">
-                    <a class="pilcrow" href="#line-123">
-                      123
-                      ¶
-                    </a>
-                  </div>
-                  
-                </td>
-                <td class="code"><pre>    <span class="k">def</span> <span class="nf">use_gitignore?</span>
+                </tr>
+                <tr id="line-131">
+                  <td colspan="2">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-131">
+                        131
+                        ¶
+                      </a>
+                    </div>
+                    <h2 id="accessors-and-cached-stuff">Accessors and cached stuff</h2>
+                  </td>
+                </tr>
+                <tr id="line-136">
+                  <td colspan="1">
+                    <div class="pilwrap">
+                      <a class="pilcrow" href="#line-136">
+                        136
+                        ¶
+                      </a>
+                    </div>
+                    
+                  </td>
+                  <td class="code"><pre>    <span class="k">def</span> <span class="nf">use_gitignore?</span>
       <span class="k">if</span> <span class="vi">@site</span><span class="o">.</span>config<span class="o">.</span>key?(<span class="ss">:use_gitignore</span>)
         <span class="vi">@site</span><span class="o">.</span>config<span class="o">[</span><span class="ss">:use_gitignore</span><span class="o">]</span>
       <span class="k">else</span>
@@ -418,12 +435,26 @@
     memoize <span class="ss">:output_realpath</span>
   <span class="k">end</span>
 <span class="k">end</span></pre></td>
-              </tr>
-            </tbody>
-          </table>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
+      <div id="push"></div>
     </div>
+    <footer>
+      <div class="container-fluid text-center">
+        <ul class="inline">
+          <li>
+            Generated by
+            <a href="http://3ofcoins.github.io/nanodoc/">Nanodoc</a>
+            version
+            0.0.1
+          </li>
+        </ul>
+      </div>
+    </footer>
     <script src="../../../_static/jquery-1.9.1.min.js"></script>
     <script src="../../../_static/bootstrap/js/bootstrap.min.js"></script>
   </body>
