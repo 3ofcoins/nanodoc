@@ -65,22 +65,21 @@ TOKEN_CSS_CLASSES = { "Comment": "c",
                       "Name.Variable.Instance": "vi",
                       "Literal.Number.Integer.Long": "il", }
 
-tokens = []
+def lines2tokens(lines):
+    for line in lines:
+        token_type, text = line.split("\t", 1)
+        text = eval(text, {"__builtins__": None}, {})
+        if token_type.startswith('Token.'):
+            token_type = token_type[6:]
+        _head = True
+        for piece in text.split("\n"):
+            if not _head:
+                yield ["\n", 'Text.Newline']
+            if piece <> "":
+                if piece.isspace():
+                    yield [piece, 'Text.Whitespace']
+                else:
+                    yield [piece, token_type, TOKEN_CSS_CLASSES.get(token_type, None)]
+            _head = False
 
-for line in sys.stdin:
-    token_type, text = line.split("\t", 1)
-    text = eval(text, {"__builtins__": None}, {})
-    if token_type.startswith('Token.'):
-        token_type = token_type[6:]
-    _tail = False
-    for piece in text.split("\n"):
-        if _tail:
-            tokens.append(["\n", 'Text.Newline'])
-        if piece <> "":
-            if piece.isspace():
-                tokens.append([piece, 'Text.Whitespace'])
-            else:
-                tokens.append([piece, token_type, TOKEN_CSS_CLASSES.get(token_type, None)])
-        _tail = True
-
-json.dump(tokens, sys.stdout)
+json.dump(tuple(lines2tokens(sys.stdin)), sys.stdout)
