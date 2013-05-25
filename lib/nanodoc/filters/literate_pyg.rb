@@ -1,11 +1,9 @@
 require 'micromachine'
 require 'nanoc'
-require 'nanoc/filters/haml'
-require 'nanoc/filters/maruku'
+require 'nanoc/filters/kramdown'
 require 'nanoc/helpers/html_escape'
 
 require 'nanodoc/pygments'
-require 'nanodoc/site'
 
 ##
 ## Nanodoc::PygmentsLiterateFilter
@@ -17,11 +15,11 @@ require 'nanodoc/site'
 ## A state machine is used to separate comment sections from code.
 ##
 
-class Nanodoc::PygmentsLiterateFilter < Nanoc::Filters::Haml
+class Nanodoc::PygmentsLiterateFilter < Nanoc::Filters::Kramdown
   identifier :literate_pyg
   type :text
 
-  requires 'haml'
+  requires 'kramdown'
   include Nanoc::Helpers::HTMLEscape
 
 ##
@@ -29,17 +27,13 @@ class Nanodoc::PygmentsLiterateFilter < Nanoc::Filters::Haml
 ## -----------------
 ##
 
-  # Full path to the literate programming template
-  HAML_TEMPLATE = Nanodoc::Site::ROOT_DIR.join('layouts', 'literate_pyg.haml').read()
-
   #
   # ### Main entry point
   def run(content, params={})
     handle_parsed_file(pyg.parsed)
 
-    if assigns[:sections]
-      process_sections
-      super(HAML_TEMPLATE, params)
+    if sections?
+      super(sections.to_kramdown, params)
     else
       "<pre>#{h(content)}</pre>"
     end
@@ -68,42 +62,6 @@ class Nanodoc::PygmentsLiterateFilter < Nanoc::Filters::Haml
     #
     # *[EOF]: End Of File
     feed_eof
-  end
-
-  #
-  # ### Process sections for templates
-  def process_sections
-    # Strip shebang and mode lines at beginning of file. If initial
-    # comment section consisted only of these, discard the whole
-    # section.
-    if opening_comments = assigns[:sections].first[:comment_lines]
-      opening_comments.shift if opening_comments.first =~ /^\#\!/
-      opening_comments.shift while opening_comments.first =~ /^\S*\s*-\*-.*-\*-\s*$/
-      opening_comments.pop while opening_comments.last == ""
-      assigns[:sections].shift if opening_comments.empty? && !assigns[:sections].first[:code_lines]
-    end
-
-    assigns[:sections].each do |section|
-      # Merge code lines into a `<pre>` tag.
-      if section[:code_lines] && !(section[:code_lines].empty?)
-        section[:code] = "<pre>#{section[:code_lines].join("\n")}</pre>"
-      end
-      # Discard empty comment lines at the end; render Kramdown if
-      # anything's left.
-      if section[:comment_lines]
-        section[:comment_lines].pop while section[:comment_lines].last =~ /^\s*$/
-
-        unless section[:comment_lines].empty?
-          # Strip comment prefix and whitespace. FIXME: be smarter.
-          comment_md = section[:comment_lines].
-            map { |ln| ln.sub(/^\S+\s*/, '') }.
-            join("\n")
-
-          section[:comment] =
-            Nanoc::Filters::Kramdown.new.setup_and_run(comment_md)
-        end
-      end
-    end
   end
 
 ##
@@ -292,7 +250,7 @@ class Nanodoc::PygmentsLiterateFilter < Nanoc::Filters::Haml
   ## ----------------------
   ##
   ## The event handlers take `@text` to get current line's text, and
-  ## leave their output in the `assigns[:sections]` global.
+  ## leave their output in `@sections`
 
   # Accessor that takes care of creating the line state machine
   def line_machine
@@ -388,22 +346,32 @@ class Nanodoc::PygmentsLiterateFilter < Nanoc::Filters::Haml
   end
 
   # Start a new section
-  def add_section(args={})
-    (assigns[:sections] ||= []) << { :at => @ln }.merge!(args)
+  def add_section()
+    sections << Section.new
   end
 
   # Adds comment line to the current section
   def add_comment
-    (current_section[:comment_lines] ||= []) << @line
+    section.comment_line(@ln, @line)
   end
 
   # Adds code line to the current section
   def add_code
-    (current_section[:code_lines] ||= []) << @line
+    section.code_line(@ln, @line)
+  end
+
+  def sections
+    @sections ||= SectionList.new
+  end
+
+  def sections?
+    @sections && !(@sections.empty?)
   end
 
   # Accessor for current section
-  def current_section
-    assigns[:sections].last
+  def section
+    sections.last
   end
 end
+
+require 'nanodoc/filters/literate_pyg/section'
