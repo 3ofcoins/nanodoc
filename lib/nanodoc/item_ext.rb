@@ -5,7 +5,7 @@ class Nanoc::Item
   end
 
   def label
-    @_nanodoc_label ||= self[:label] || File.basename(self.path)
+    @_nanodoc_label ||= self[:label] || basename
   end
 
   def readme?
@@ -21,7 +21,7 @@ class Nanoc::Item
   end
 
   def directory?
-    !self[:filename] || self.readme?
+    !self[:filename]
   end
 
   def directory

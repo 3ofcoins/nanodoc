@@ -28,10 +28,14 @@ EOF
 
       missing_intermediate_dirs.each do |dir_id|
         @items << Nanoc::Item.new(NO_README,
-          {:mime_type => 'text/html', :extension => 'html', :directory? => true},
+          {:mime_type => 'text/html', :extension => 'html', :directory? => true, :pathname => dir_id.chop},
           dir_id,
           :binary => false)
       end
+    end
+
+    def link_to_file(item, attributes={})
+      link_to(item.label, (item.children.find(&:readme?) || item), attributes)
     end
   end
 end

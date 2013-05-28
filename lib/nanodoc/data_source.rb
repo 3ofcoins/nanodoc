@@ -46,7 +46,7 @@ module NanoDoc
 ##
 
     def identifier_for_filename(filename)
-      filename.to_s.sub(/(^|\/)README(\.[^\.\/]+)?$/, '').cleaned_identifier
+      filename.to_s.cleaned_identifier
     end
 
 ##

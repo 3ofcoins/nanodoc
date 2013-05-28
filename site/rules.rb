@@ -23,7 +23,7 @@ compile '*' do
       filter :literate_pyg unless item[:directory?]
     end
     layout 'default.haml'
-    filter :relativize_paths, :type => :html
+    filter :relativize_paths, :type => :html unless item.children.any?(&:readme?)
   end
 end
 
@@ -32,7 +32,13 @@ route '/_static*' do
 end
 
 route '*' do
-  item.identifier + 'index.html'
+  if item.children.any?(&:readme?)
+    nil
+  elsif item.readme?
+    item.parent.identifier + 'index.html'
+  else
+    item.identifier + 'index.html'
+  end
 end
 
 layout '*', :haml, :format => :html5

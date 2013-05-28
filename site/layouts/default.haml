@@ -29,20 +29,11 @@
                   %li.active= crumb.label
                 - else
                   %li
-                    = link_to(crumb.label, crumb.reps.first)
+                    = link_to_file(crumb)
                     %span.divider /
         .row-fluid
           .span2.well.well-small
             %ul.nav.nav-list
-              - if @item.readme?
-                %li.active
-                  %i.icon-hand-right
-                  = @item.basename
-              - elsif @item.directory.readme?
-                %li
-                  %a{:href => item.directory.path}
-                    %i.icon-book
-                    = item.directory.basename
               - @item.siblings.each do |sibling|
                 - if sibling.identifier == @item.identifier
                   %li.active
