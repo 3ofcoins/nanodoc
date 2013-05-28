@@ -48,8 +48,6 @@ EOF
       comment_lines.pop while comment_lines.last == ""
     end
 
-    private
-
     def code
       @code ||= @code_lines.join("\n") if code?
     end
@@ -88,14 +86,19 @@ EOF
   class SectionList < Array
     def to_kramdown
       return if empty?
+
       first.discard_shebang!
+
+      prefix =[]
+      prefix << shift.comment while not first.code?
+      prefix = prefix.join("\n\n") << "\n\n"
 
       rows = map(&:to_kramdown)
       rows.compact!
       return if rows.empty?
 
       <<EOF
-<table class="table literate">
+#{prefix}<table class="table literate" style="clear: both;">
 <tbody>
 #{rows.join("\n")}
 </tbody></table>

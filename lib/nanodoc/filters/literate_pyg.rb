@@ -1,3 +1,15 @@
+##
+## Pygments Literate Programming
+## =============================
+##
+## Parses text with [Pygments](http://pygments.org), splits comments
+## from code, and renders it in a literate programming layout.
+##
+## A state machine is used to separate comment sections from code.
+##
+
+# Requirements
+
 require 'micromachine'
 require 'nanoc'
 require 'nanoc/filters/kramdown'
@@ -5,14 +17,6 @@ require 'nanoc/helpers/html_escape'
 
 require 'nanodoc/pygments'
 
-##
-## Nanodoc::PygmentsLiterateFilter
-## ===============================
-##
-## Parses text with [Pygments](http://pygments.org), splits comments
-## from code, and renders it in a literate programming layout.
-##
-## A state machine is used to separate comment sections from code.
 ##
 
 class Nanodoc::PygmentsLiterateFilter < Nanoc::Filters::Kramdown
